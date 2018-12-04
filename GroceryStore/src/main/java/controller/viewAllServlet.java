@@ -17,9 +17,11 @@ public class viewAllServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ItemDao dao = new ItemDao();
-		request.setAttribute("allItems", dao.showAllItems());
+		//request.setAttribute("allItems", dao.showAllItems());
+		request.setAttribute("allItems", dao.showAllMeat());
 		
-		if(dao.showAllItems().isEmpty()) {
+		//if(dao.showAllItems().isEmpty()) {
+		if(dao.showAllMeat().isEmpty()) {
 			request.setAttribute("allItems", " ");
 			
 		} 
