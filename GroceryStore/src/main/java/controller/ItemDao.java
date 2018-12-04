@@ -51,6 +51,30 @@ public class ItemDao {
 		return foundTeams;
 	}
 	
+	public List<Item> showAllMeat(){
+		EntityManager em = emfactory.createEntityManager();
+		TypedQuery<Item> typedQuery = em.createQuery("select i from Item i where i.department = 'Meat'", Item.class);
+		List<Item> foundTeams = typedQuery.getResultList();
+		em.close();
+		return foundTeams;
+	}
+	
+	public List<Item> showAllProduce(){
+		EntityManager em = emfactory.createEntityManager();
+		TypedQuery<Item> typedQuery = em.createQuery("select i from Item i where i.department = 'Produce'", Item.class);
+		List<Item> foundTeams = typedQuery.getResultList();
+		em.close();
+		return foundTeams;
+	}
+	
+	public List<Item> showAllAlcohol(){
+		EntityManager em = emfactory.createEntityManager();
+		TypedQuery<Item> typedQuery = em.createQuery("select i from Item i where i.department = 'Alcohol'", Item.class);
+		List<Item> foundTeams = typedQuery.getResultList();
+		em.close();
+		return foundTeams;
+	}
+	
 	public Item searchForItemByItemID(int id) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
