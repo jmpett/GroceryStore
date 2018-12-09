@@ -11,9 +11,17 @@
 		var username = document.forms["startPage"]["userName"].value;
 		
 		if (username == "admin") {
-			window.location = "admin.jsp";
+			window.location = "viewAllServlet";
 		}
-		
+		else if (username == "meat") {
+			window.location = "viewAllMeat";
+		}
+		else if (username == "produce") {
+			window.location = "viewAllProduce";
+		}
+		else if (username == "alcohol") {
+			window.location = "viewAllAlcohol";
+		}
 	}
 //-->
 </script>

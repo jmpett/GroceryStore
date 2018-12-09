@@ -7,23 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/viewAllServlet")
-public class viewAllServlet extends HttpServlet {
+@WebServlet("/viewAllAlcohol")
+public class viewAllAlcohol extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	public viewAllServlet() {
+	public viewAllAlcohol() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ItemDao dao = new ItemDao();
-		request.setAttribute("allItems", dao.showAllItems());
+		request.setAttribute("allItems", dao.showAllAlcohol());
 		
-		if(dao.showAllItems().isEmpty()) {
+		if(dao.showAllAlcohol().isEmpty()) {
 			request.setAttribute("allItems", " ");
 			
 		} 
-		getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/alcohol.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

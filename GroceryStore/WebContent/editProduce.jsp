@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Add Item</title>
 <style>
 body  {
 	background: darkblue;
@@ -51,10 +50,10 @@ a:active {
 </style>
 <script>
 function validateForm() {
-    var w = document.forms["addItem"]["item"].value;
-    var x = document.forms["addItem"]["deptID"].value;
-    var y = document.forms["addItem"]["department"].value;
-    var z = document.forms["addItem"]["price"].value;
+    var w = document.forms["editItem"]["item"].value;
+    var x = document.forms["editItem"]["deptID"].value;
+    var y = document.forms["editItem"]["department"].value;
+    var z = document.forms["editItem"]["price"].value;
     if (w == "") {
         alert("Item must be filled out");
         return false;
@@ -73,18 +72,22 @@ function validateForm() {
     }
 } 
 </script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Edit Item</title>
 </head>
 <body>
- <form name="addItem" action = "addItemsServlet" method="post" onsubmit="return validateForm()">
- Item: <input type ="text" name = "item">
- DeptID: <input type = "text" name = "deptID">
- Department: <input type = "text" name = "department">
- Price: <input type = "text" name = "price">
- <input type = "submit" value="Add Item">
+<form name="editProduce" action = "editProduceServlet" method="post" onsubmit="return validateForm()">
+Item: <input type ="text" name = "item" value= "${itemToEdit.item}">
+DeptID: <input type = "text" name = "deptID" value= "${itemToEdit.deptID}">
+Department: <input type = "text" name = "department" value= "${itemToEdit.department}">
+Price: <input type = "text" name = "price" value= "${itemToEdit.price}">
+<input type = "hidden" name = "itemID" value = "${itemToEdit.itemID}">
+<input type = "submit" value="Save Edited Item">
 </form>
 <p>
-<a href = "viewAllServlet">View complete list</a><br />
-<a href = "startPage.html"> Back to login</a><br />
+<a href = "viewAllProduce">View complete list</a><br />
+<a href = "startPage.html">Back to login</a><br />
 </p>
 </body>
 </html>
